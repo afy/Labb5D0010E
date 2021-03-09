@@ -17,7 +17,7 @@ public class EventQueue {
         if (this.queue.size() == 0) {
             this.queue.add(item);
         } else {
-            int eventTime = item.getQueueTime();
+            double eventTime = item.getQueueTime();
 
             for (int i = 0; i < this.queue.size(); i++) {
                 if (eventTime < this.queue.get(i).getQueueTime()) {

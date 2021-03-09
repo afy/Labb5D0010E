@@ -1,24 +1,31 @@
 package lab5.market;
+
 /**
  * 
  * @author Wiklund
  *
- */
+ **/
+
 public class Customer {
 	public int id;
-	public double pickingTime;
-	public double arrivalTime;
-	public double queueTime = 0;
-	public double scanTime = 0;
-	public double payTime = 0;
+//	public double pickingTime = 0;
+	public double arrivalTime = 0;
+//	public double queueArrivalTime = 0;
+//	public double scanTime = 0;
+//	public double paymentDoneTime = 0;
+	public double startedQueue = 0;
 	
 	/**
-	* A constructor that make Customer objects with an id
+	* A constructor that creates a Customer objects with an id and arrivalTime
 	**/
-	public Customer(int id) {
+	
+	public Customer(int id, double arrivalTime) {
 		this.id = id; 
-//		this.arrivalTime = arrivalTime;
-//		this.pickingTime = pickingTime;
-//		this.queueTime = queueTime;
+		this.arrivalTime = arrivalTime;
+		
 	}
+	
+//	public void setpaymentDoneTime(double t) {
+//		paymentDoneTime = t;
+//	}
 }

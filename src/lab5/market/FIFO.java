@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * First In First Out queue
 */
-class FIFO 
+public class FIFO 
 {
 	private ArrayList<Object> queue = new ArrayList<Object>();
 	
@@ -15,7 +15,12 @@ class FIFO
 	public void enqueue(Object o) {
 		queue.add(o);
 	}
-	
+	public ArrayList<Object> getQueue() {
+		return queue;
+	}
+	public int size() {
+		return queue.size();
+	}
 	/**
 	 * return the first element in the queue
 	 * @return the first object in list

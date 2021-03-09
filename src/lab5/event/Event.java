@@ -1,13 +1,13 @@
 package lab5.event;
 import lab5.State;
 public abstract class Event {
-    private int queueTime;
-
-    public Event(int time) {
+    protected double queueTime;
+    
+    public Event(double time) {
         this.queueTime = time;
     }
 
-    int getQueueTime() {
+    public double getQueueTime() {
         return this.queueTime;
     }
 

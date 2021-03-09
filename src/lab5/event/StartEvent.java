@@ -1,18 +1,19 @@
 package lab5.event;
 import lab5.State;
+import lab5.market.ExponentialRandomStream;
 public abstract class StartEvent extends Event{
 	
-	public StartEvent(int time) {
+	public StartEvent(double time) {
 		super(time);
 	}
 
 
 	public void runEvent(State state, EventQueue eventQueue) {
 		state.startSim();
-		postRunEvent();
+		postRunEvent(state, eventQueue);
 	}
 	
 	
-	protected abstract void postRunEvent();
+	protected abstract void postRunEvent(State state, EventQueue eventQueue);
 	
 }

@@ -2,8 +2,19 @@ package lab5;
 
 import java.util.*;
 
+/**
+ * 
+ * @author Wiklund
+ *
+ **/
+
 public class State extends Observable{
-	boolean _stopSim = false;
+	
+	/** 
+	* 
+	**/
+	
+	protected boolean _stopSim = false;
 	
 	public void stopSim() {
 		_stopSim = true;
