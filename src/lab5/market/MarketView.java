@@ -6,19 +6,41 @@ import java.util.Observable;
 
 import lab5.View;
 
+/**
+ * Display simulation passage of events and results
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ */
 public class MarketView extends View{
 	
+	/**
+	 * State to observe
+	 */
 	MarketState MS;
+	
+	
+	/**
+	 * Constructor
+	 * @param s State to observe
+	 */
 	public MarketView(MarketState s){
 		this.MS = s;
 		MS.addObserver(this);
 		printParameters();
 		printCourse();
 	}
+	
+	/**
+	 * Default update method from Observer pattern
+	 * @param o 
+	 * @param arg
+	 */
 	public void update(Observable o, Object arg) {
 		printCourseValue();
 	}
 	
+	/**
+	 * Display simulation result
+	 */
 	public void printResult() {
 		System.out.println("\nRESULTAT \n "
 				+ "======== \n"
@@ -29,12 +51,10 @@ public class MarketView extends View{
 				+ "3) Total tid " + this.MS.getHasQueued() +" kunder tvingats köa: " + new DecimalFormat("0.00").format(this.MS.totalQueueTime) + " te.\r\n"
 				+ " Genomsnittlig kötid: " + new DecimalFormat("0.00").format(this.MS.totalQueueTime / this.MS.getHasQueued())+ " te. ");
 	}
-	
-//	public void printState() {
-//		printParameters();
-//		printCourse();
-//		//printCourseValue();
-//	}
+
+	/**
+	 * Display simulation parameters
+	 */
 	private void printParameters() {
 		System.out.println(
 				  "PARAMETRAR \n"
@@ -48,6 +68,10 @@ public class MarketView extends View{
 				
 						);
 	}
+	
+	/**
+	 * Display title for the course of events
+	 */
 	private void printCourse() {
 		System.out.println(
 				  "FÖRLOPP \n"
@@ -55,6 +79,10 @@ public class MarketView extends View{
 				+ "Tid \t" + "Händelse \t" + "Kund \t " + "? \t" + "led \t" + "ledT \t" + "I \t" + "$ \t" + ":-( \t" + "köat \t" + "köT \t" + "köar \t" + "[KassaKö]"
 				);
 	}
+	
+	/**
+	 * Display a line from course of events; display a standard row with no restrictions
+	 */
 	public void printOther() {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("CustomerArrivalEvent", "Arrival");
@@ -85,28 +113,28 @@ public class MarketView extends View{
 				+ printList.size() + "\t"
 				+ printList);
 	}
+	
+	/**
+	 * Display a line from course of events; display a line for starting event
+	 */
 	public void printStart() {
-
-		
 		System.out.println(new DecimalFormat("0.00").format(this.MS.latestEvent.getQueueTime()) +"\t"
 				+ "Start");
 	}
+	
+	/**
+	 * Display a line from course of events; display a line for stopping event and then print results
+	 */
 	public void printStop() {
-		
 		System.out.println( new DecimalFormat("0.00").format(this.MS.latestEvent.getQueueTime()) +"\t"
 				+ "Stop");
-		
 		printResult();
 	}
-	private void printCourseValue() {
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("CustomerArrivalEvent", "Arrival");
-			map.put("GoodsPaidEvent", "Payment");
-			map.put("GoodsPickedEvent", "Picked");
-			map.put("MarketClosedEvent", "Closed");
-			map.put("MarketStartEvent", "Start");
-			map.put("MarketStopEvent", "Stop");
-			
+	
+	/**
+	 * Display course of events (runs during simulation on observer update)
+	 */
+	private void printCourseValue() {		
 			switch((this.MS.latestEvent.getClass().getName().replace("lab5.market.", ""))) {
 				case "MarketStartEvent":
 					printStart();
