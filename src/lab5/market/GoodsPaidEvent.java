@@ -1,15 +1,29 @@
 package lab5.market;
 import lab5.State;
 import lab5.event.EventQueue;
+
+/**
+ * Event called when a customer is done paying
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ */
 public class GoodsPaidEvent extends MarketEvent{
 	
-	
+	/**
+	 * Constructor
+	 * @param time Current simulation time
+	 * @param c Customer
+	 */
 	public GoodsPaidEvent(double time, Customer c) {
 		super(time);
 		this.customer = c;
 	}
 	
-	
+	/**
+	 * Remove customer, set lastN, Open up a register and let another customer pay (if applicable)
+	 * if this was the last customer, set the lastCustomerPaid variable. Finally, add 1 to sales
+	 * @param state Market state
+	 * @param eventQueue EventQueue
+	 */
 	public void runEvent(State state, EventQueue eventQueue) {
 		MarketState mstate = ((MarketState)state);
 		mstate.customer.remove(this.customer);
