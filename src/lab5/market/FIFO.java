@@ -2,6 +2,12 @@ package lab5.market;
 import java.util.ArrayList;
 
 /**
+ * 
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ *
+**/
+
+/**
  * First In First Out queue
 */
 public class FIFO 
@@ -15,9 +21,18 @@ public class FIFO
 	public void enqueue(Object o) {
 		queue.add(o);
 	}
+	
+	/**
+	 * return the queue
+	 * @return the queue
+	*/
 	public ArrayList<Object> getQueue() {
 		return queue;
 	}
+	/**
+	 * return the size of queue
+	 * @return the size of queue
+	*/
 	public int size() {
 		return queue.size();
 	}

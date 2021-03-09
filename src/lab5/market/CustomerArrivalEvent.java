@@ -1,13 +1,30 @@
 package lab5.market;
 import lab5.State;
 import lab5.event.EventQueue;
+
+/**
+ * 
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ *
+ */
+
+/**
+ * Specific event that is called when a customer "arrives"
+ */
 public class CustomerArrivalEvent extends MarketEvent{
 	
+	/**
+	 * Constructor for the class
+	 * @param time The time used throughout runtime
+	 */
 	public CustomerArrivalEvent(double time) {
 		super(time);
 	}
 
-
+	/**
+	 * An method to run whatever the event is supposed to
+	 */
+	
 	public void runEvent(State state, EventQueue queue) {
 		MarketState mstate = ((MarketState) state);
 		Customer c = mstate.cf.makeCustomer(this.queueTime);

@@ -2,9 +2,9 @@ package lab5.market;
 
 /**
  * 
- * @author Wiklund
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
  *
- **/
+ */
 
 public class Customer {
 	public int id;
@@ -17,8 +17,7 @@ public class Customer {
 	
 	/**
 	* A constructor that creates a Customer objects with an id and arrivalTime
-	**/
-	
+	*/
 	public Customer(int id, double arrivalTime) {
 		this.id = id; 
 		this.arrivalTime = arrivalTime;
