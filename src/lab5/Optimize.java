@@ -41,7 +41,7 @@ public class Optimize {
 		}
 		return maxReg;
 	}
-	
+	//NY KOMMENTAR
 	public static int testRegisters(int seed) {
 		int minmissed = 999;
 		int minReg = 0;
