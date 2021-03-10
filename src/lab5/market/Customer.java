@@ -6,6 +6,9 @@ package lab5.market;
  *
  */
 
+/**
+ * Class that stands for individual customers
+*/
 public class Customer {
 	public int id;
 //	public double pickingTime = 0;
