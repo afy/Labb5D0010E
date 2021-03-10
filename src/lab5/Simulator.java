@@ -5,14 +5,22 @@ import lab5.market.MarketState;
 import lab5.market.MarketView;
 
 /**
- * Class that runs the simulation by calling the events in eventQueue
+ * Class that runs the simulation by calling the events in eventQueue and applying their effects on the state.
+ *
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public class Simulator {
 
     private EventQueue eventQueue;
     private State state;
     private double simulationTime;
-    
+
+    /**
+     * The constructor
+     *
+     * @param eventQueue, the queue in which events are stored.
+     * @param state, the state that the simulation is supposed run on.
+     */
 	public Simulator(EventQueue eventQueue, State state) {
 	    this.eventQueue = eventQueue;
 	    this.state = state;
@@ -20,6 +28,7 @@ public class Simulator {
 	public State getState() {
 		return state;
 	}
+
     /**
      * loops through all events, calling them and removing them one by one
     */
