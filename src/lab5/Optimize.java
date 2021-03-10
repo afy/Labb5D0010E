@@ -9,15 +9,22 @@ import lab5.market.MarketState;
 import lab5.market.MarketStopEvent;
 import lab5.market.UniformRandomStream;
 
+/** A class that finds the least amount of cash registers needed to not miss customers in MarketState.
+ *
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ */
 public class Optimize {
 	public static void main(String[] args) {
 		for(int i = 0; i < 1000; i++) {
 			System.out.println(testSeed(i));
 		}
-		
-		
 	}
-	
+
+	/**Tests for the minimum amount of cash registers needed to not miss a single customer for different seeds.
+	 *
+	 * @param seed the seed for the random generator.
+	 * @return the minimum amount of registers needed to not miss any customers.
+	 */
 	public static int testSeed(int seed) {
 		Random r = new Random(seed);
 		int same = 0;
@@ -41,7 +48,12 @@ public class Optimize {
 		}
 		return maxReg;
 	}
-	//NY KOMMENTAR
+
+	/** Tests for the minimum amount of cash registers needed to not miss a single customer.
+	 *
+	 * @param seed  the seed for the random generator.
+	 * @return the minimum amount of registers needed to not miss any customers.
+	 */
 	public static int testRegisters(int seed) {
 		int minmissed = 999;
 		int minReg = 0;
@@ -54,7 +66,13 @@ public class Optimize {
 		}
 		return minReg;
 	}
-	
+
+	/** Runs a simulation on MarketState.
+	 *
+	 * @param reg  the amount of cash registers in the market.
+	 * @param seed  the seed for the random generator.
+	 * @return the MarketState after the simulation
+  	 */
 	public static MarketState test(int reg, int seed) {
 		EventQueue queue = new EventQueue();
 		MarketState state = new MarketState(reg, 10, 1.0, 0.5, 1.0, 2.0, 3.0, seed, 10.0);
