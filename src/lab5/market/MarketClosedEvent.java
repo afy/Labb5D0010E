@@ -23,9 +23,12 @@ public class MarketClosedEvent extends MarketEvent{
 	 */
 	public void runEvent(State state, EventQueue queue) {
 		MarketState mstate = ((MarketState) state);
+		
+		// set for difference calculations
 		mstate.lastN = mstate.getN();
-
 		mstate.lastRegisterQueueSize = mstate.registerQueue.size();
+		
+		// set closed dand notify state
 		mstate.setMarketClosed();
 		mstate.recivedChange();
 	}

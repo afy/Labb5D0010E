@@ -20,7 +20,7 @@ public abstract class StartEvent extends Event{
 	 * Method called by simulation; action taken by simulation
 	 * Indicate a simulation start, then call abstract method postRunEvent()
 	 * @param state Simulation state
-	 * @param eventQueue FIFO queue of events to be executed
+	 * @param eventQueue queue of events to be executed
 	 */
 	public void runEvent(State state, EventQueue eventQueue) {
 		state.startSim();
@@ -30,7 +30,7 @@ public abstract class StartEvent extends Event{
 	/**
 	 * Method to handle specific settings at simulation start
 	 * @param state Simulation state
-	 * @param eventQueue FIFO queue of events to be executed
+	 * @param eventQueue queue of events to be executed
 	 */
 	protected abstract void postRunEvent(State state, EventQueue eventQueue);
 }

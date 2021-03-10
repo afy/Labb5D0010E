@@ -12,7 +12,7 @@ import java.util.*;
 public class State extends Observable{
 
 	
-	protected boolean _stopSim = false; //
+	protected boolean _stopSim = false; // flag for stopping simulation
 
 	/**
 	 * Stops the simulation.

@@ -13,7 +13,6 @@ public class Simulator {
 
     private EventQueue eventQueue;
     private State state;
-    private double simulationTime;
 
     /**
      * The constructor
@@ -37,11 +36,9 @@ public class Simulator {
     /**
      * loops through all events, calling them and removing them one by one
     */
-    public void run() {
-    	
-    	
+    public void run() { 	
         while(eventQueue.getLength() > 0) {
-        	((MarketState)state).setLatestEvent(eventQueue.getFirstEvent());
+        	((MarketState)state).setLatestEvent(eventQueue.getFirstEvent()); // for printout
             eventQueue.getFirstEvent().runEvent(state, eventQueue);
             eventQueue.removeFirstEvent();
             if(state._stopSim) {

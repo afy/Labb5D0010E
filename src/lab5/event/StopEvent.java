@@ -19,7 +19,7 @@ public abstract class StopEvent extends Event{
 	 * Method called by simulation; action taken by simulation
 	 * Indicate a simulation stop, then call abstract method postRunEvent()
 	 * @param state Simulation state
-	 * @param eventQueue FIFO queue of events to be executed
+	 * @param eventQueue queue of events to be executed
 	 */
 	public void runEvent(State state, EventQueue eventQueue) {
 		state.stopSim();
@@ -29,7 +29,7 @@ public abstract class StopEvent extends Event{
 	/**
 	 * Method to handle specific settings at end of simulation
 	 * @param state Simulation state
-	 * @param eventQueue FIFO queue of events to be executed
+	 * @param eventQueue queue of events to be executed
 	 */
 	protected abstract void postRunEvent(State state, EventQueue eventQueue);	
 }

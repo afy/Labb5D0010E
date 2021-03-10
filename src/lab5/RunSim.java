@@ -19,14 +19,8 @@ public class RunSim{
 	 * @param args Arguments
 	 */
 	public static void main(String[] args) {
-//			MarketState marketState = new MarketState();
-//			
-//			MarketView view = new MarketView(marketState);
-//			marketState.recivedEvent();
-//			marketState.recivedEvent();
-		
 		EventQueue queue = new EventQueue();
-	//	MarketState state = new MarketState(2, 5, 1.0, 0.5, 1.0, 2.0, 3.0, 1234, 10.0);
+	    //MarketState state = new MarketState(2, 5, 1.0, 0.5, 1.0, 2.0, 3.0, 1234, 10.0);
 		MarketState state = new MarketState(2, 7, 3.0, 0.6, 0.9, 0.35, 0.6, 13, 8.0);
 		queue.addEvent(new MarketStartEvent(0));
 		queue.addEvent(new MarketClosedEvent(state.getClosingTime()));

@@ -25,17 +25,24 @@ public class GoodsPickedEvent extends MarketEvent{
 	 */
 	public void runEvent(State state, EventQueue queue) {
 		MarketState mstate = ((MarketState)state);
+		
+		// set for difference calculations
 		mstate.lastRegisterQueueSize = mstate.registerQueue.size();
 		mstate.lastN = mstate.getN();
+		
+		// if a register is empty
 		if(mstate.getN() > 0 ) {
 			mstate.decN();
 			queue.addEvent(new GoodsPaidEvent(this.queueTime + mstate.uniK.next(), this.customer));
 		}
+		
+		// queue customer
 		else {
 			mstate.registerQueue.enqueue(this.customer);
 			mstate.incHasQueued();
-			this.customer.startedQueue = this.queueTime;
 		}
+		
+		// notify state
 		mstate.recivedChange();
 		
 	}

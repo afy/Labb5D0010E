@@ -20,9 +20,7 @@ public class Optimize {
 	 * @param args arguments
 	 */
 	public static void main(String[] args) {
-		for(int i = 0; i < 1000; i++) {
-			System.out.println(testSeed(i));
-		}
+		testRegisters(42);
 	}
 
 	/**Tests for the minimum amount of cash registers needed to not miss a single customer for different seeds.
@@ -34,14 +32,9 @@ public class Optimize {
 		Random r = new Random(seed);
 		int same = 0;
 		int maxReg = 0;
-		int loopCount = 0;
-		int regTot = 0;
-		
 		
 		while(same < 100) {
 			int registers = testRegisters(r.nextInt());
-			loopCount++;
-			regTot += registers;
 			
 			if(registers > maxReg) {
 				same = 0;
@@ -62,13 +55,14 @@ public class Optimize {
 	public static int testRegisters(int seed) {
 		int minmissed = 999;
 		int minReg = 0;
-		for(int i = 1; i <= 10; i++) {
+		for(int i = 1; i <= 100; i++) {
 			MarketState ms = test(i, seed);
 			if(ms.getMissedCustomers() < minmissed) {
 				minReg = i;
 				minmissed = ms.getMissedCustomers();
 			}
 		}
+		System.out.println(minReg+" "+minmissed);
 		return minReg;
 	}
 
@@ -80,7 +74,7 @@ public class Optimize {
   	 */
 	public static MarketState test(int reg, int seed) {
 		EventQueue queue = new EventQueue();
-		MarketState state = new MarketState(reg, 10, 1.0, 0.5, 1.0, 2.0, 3.0, seed, 10.0);
+		MarketState state = new MarketState(reg, 100, 50.0, 0.45, 0.65, 0.2, 0.3, seed, 20.0);
 		queue.addEvent(new MarketStartEvent(0));
 		queue.addEvent(new MarketClosedEvent(state.getClosingTime()));
 		queue.addEvent(new MarketStopEvent(999.00));

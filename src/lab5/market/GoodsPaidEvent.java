@@ -27,28 +27,30 @@ public class GoodsPaidEvent extends MarketEvent{
 	public void runEvent(State state, EventQueue eventQueue) {
 		MarketState mstate = ((MarketState)state);
 		mstate.customer.remove(this.customer);
+		
+		// set for difference caluclations
 		mstate.lastN = mstate.getN();
 		
+		// no customers waiting to pay
 		if(mstate.registerQueue.size() == 0) {
-			mstate.incN();
+			mstate.incN(); // increment
 			mstate.lastRegisterQueueSize = mstate.registerQueue.size();
 		}
+		
+		// initiate a new payEvent for a customer in queue
 		else {
 			eventQueue.addEvent(new GoodsPaidEvent(this.queueTime + mstate.uniK.next(), (Customer)mstate.registerQueue.getFirst()));
-		
-//			mstate.totalQueueTime += this.queueTime - ((Customer)mstate.registerQueue.getFirst()).startedQueue;
-			mstate.lastRegisterQueueSize = mstate.registerQueue.size();
-			
-			mstate.registerQueue.removeFirst();
-			
-			
+			mstate.lastRegisterQueueSize = mstate.registerQueue.size();	
+			mstate.registerQueue.removeFirst();	
 		}
 		
+		// final customer
 		if(mstate.customer.size() == 0 && !mstate.isOpen()  ) {
 			mstate.lastcustomerPaid = queueTime;
-		
 		}
-		mstate.incSales();
+		mstate.incSales(); // increment
+		
+		// notify state
 		mstate.recivedChange();
 	}
 }

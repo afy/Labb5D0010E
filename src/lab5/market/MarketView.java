@@ -93,10 +93,8 @@ public class MarketView extends View{
 		map.put("MarketStopEvent", "Stop");
 		
 		ArrayList<Integer> printList = new ArrayList<Integer>();
-		for(int i = 0; i < this.MS.registerQueue.size(); i++) { 
-			
-			printList.add(((Customer)this.MS.registerQueue.getQueue().get(i)).id);
-			
+		for(int i = 0; i < this.MS.registerQueue.size(); i++) { 	
+			printList.add(((Customer)this.MS.registerQueue.getQueue().get(i)).id);	
 		}
 		
 		System.out.println(new DecimalFormat("0.00").format(this.MS.latestEvent.getQueueTime()) +"\t"

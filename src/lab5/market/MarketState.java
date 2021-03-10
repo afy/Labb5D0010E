@@ -12,24 +12,29 @@ import lab5.State;
  *
  */
 public class MarketState extends State{
-	private int N;
-	final private int M;
-	final private double kMin;
-	final private double kMax;
-	final private double pMin;
-	final private double pMax;
-	final double S; //lambda
-	final int f; //seed
 	
+	/// params
+	private int N;				// number of registers
+	final private int M;		// max customers in store at once
+	final private double kMin;	// min scan
+	final private double kMax;	// max scan time
+	final private double pMin;	// min picking time
+	final private double pMax; 	// max picking time
+	final double S; 			// lambda
+	final int f; 				// seed
+	private double closingTime;	
+	
+	
+	/// stats
 	private int sales = 0;
-	private int missedCustomers = 0;
+	private int missedCustomers = 0;	
 	private int hasQueued = 0;
 	boolean marketOpen = true;
-	
-	private double closingTime;
 	double downTimeCheckout = 0;
 	double totalQueueTime = 0;	
 	
+	
+	/// helpers / state managers
 	/**
 	 * Exp random stream
 	 */
@@ -51,14 +56,14 @@ public class MarketState extends State{
 	 * The event before the latest event that occured.
 	 */
 	public Event lastEvent; 
-	double lastcustomerPaid = 0;
+	double lastcustomerPaid = 0; // set when last customer paid, used for time calcualtions
 	
 	/**
 	 * las register queue size
 	 */
-	public int lastRegisterQueueSize;
+	public int lastRegisterQueueSize; // register queue size in last event call, used for time calcualtions
 	
-	int lastN;
+	int lastN; // no. last registers in the last event call, used for time calculations
 	
 	/**
 	 * Register queue of type FIFO queue.
@@ -101,7 +106,6 @@ public class MarketState extends State{
 		this.expR = new ExponentialRandomStream(S, f);
 		this.uniP = new UniformRandomStream(pMin, pMax, f);
 		this.uniK =  new UniformRandomStream(kMin, kMax, f);
-
 	}
 	
 	/**
@@ -118,21 +122,22 @@ public class MarketState extends State{
 	 * Method called when a change has been made in the marketstate. 
 	 */
 	public void recivedChange() {
-	//	e.runEvent();
+		// is used so that getQueueTime will not return 999.99 when the StopEvent is called
 		double x = latestEvent.getQueueTime();
-		
 		if(lastcustomerPaid != 0) {
 			x = lastcustomerPaid;
 		}
+		
+		//Increases downTimeCheckout if there are open registers.
 		if(lastN > 0 && this._stopSim == false) {
-			//System.out.println(latestEvent.getQueueTime() + "---" + lastEvent.getQueueTime());
-			//Increases downTimeCheckout if there are open registers.
 			downTimeCheckout += (x - lastEvent.getQueueTime()) * lastN;
 		}
+		
+		//Increases queue time if there are customers in the register queue.
 		if(lastRegisterQueueSize > 0) {
-			//Increases queue time if there are customers in the register queue.
 			totalQueueTime += (x - lastEvent.getQueueTime()) * lastRegisterQueueSize;
 		}
+		
 		setChanged();
 		notifyObservers();
 	}

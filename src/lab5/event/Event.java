@@ -6,7 +6,7 @@ import lab5.State;
  * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public abstract class Event {
-    protected double queueTime;
+    protected double queueTime; // determines when the event will occur (in simulation time)
     
     /**
      * Constructor 
@@ -27,7 +27,7 @@ public abstract class Event {
     /**
      * Method called by simulator; action taken by event
      * @param state Simulation state
-     * @param eventQueue FIFO queue of events to be executed
+     * @param eventQueue queue of events to be executed
      */
     abstract public void runEvent(State state, EventQueue eventQueue);
 }

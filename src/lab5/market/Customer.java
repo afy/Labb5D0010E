@@ -16,11 +16,6 @@ public class Customer {
 	public double arrivalTime = 0;
 	
 	/**
-	 * Started queue 
-	 */
-	public double startedQueue = 0;
-	
-	/**
 	* A constructor that creates a Customer objects with an id and arrivalTime
 	* @param id Customer id
 	* @param arrivalTime arrival time 
