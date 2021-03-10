@@ -73,15 +73,6 @@ public class MarketState extends State{
 		this.expR = new ExponentialRandomStream(S, f);
 		this.uniP = new UniformRandomStream(pMin, pMax, f);
 		this.uniK =  new UniformRandomStream(kMin, kMax, f);
-		
-//		N = 2;
-//		M = 5;
-//		kMin = 2.0;
-//		kMax = 3.0;
-//		pMin = 0.5;
-//		pMax = 1.0;
-//		S = 1 ; //lambda
-//		f = 1234;
 
 	}
 	
@@ -193,37 +184,6 @@ public class MarketState extends State{
 	 * @return Returns the constant deciding Kmax for random stream.
 	 */
 	public double getKMax() {return kMax;}
-	
-//
-//	/**
-//	* Method that sets the max amount of customers allowed
-//	**/
-//	public void setM(int x) {
-//		M = x;
-//	}
-//	
-//	/**
-//	* Method that sets the seed value (Frö punkt 7 sid 5)
-//	**/
-//	public void setF(int x) {
-//		f = x;
-//	}
-//	
-//	/**
-//	* Method that sets the amount of sales done 
-//	**/
-//	public void setSales() {
-//		sales++;
-//	}
-//	
-//	/**
-//	* Method that sets amount of missed customers
-//	**/
-//	public void setMissedCustomers() {
-//		missedCustomers++;
-//	}
-	
-	
 	/**
 	 * Checks if there is space inside the store.
 	 * 
@@ -261,32 +221,5 @@ public class MarketState extends State{
 	public void setMarketClosed() {
 		marketOpen = false;
 	}
-//	
-//	/**
-//	* Gets the max amount of customers limit 
-//	**/
-//	public int getM() {
-//		return M;
-//	}
-//	
-//	/**
-//	* Gets the seed value (Frö punkt 7 sid 5)
-//	**/
-//	public int getF() {
-//		return f;
-//	}
-//	
-//	/**
-//	* Gets the amount of sales done
-//	**/
-//	public int getSales() {
-//		return sales;
-//	}
-//	/**
-//	* Gets the amount of missed customers 
-//	**/
-//	public int getMissedCustomers() {
-//		return missedCustomers;
-//	}
 }
 
