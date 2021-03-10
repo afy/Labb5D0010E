@@ -4,7 +4,7 @@ import lab5.event.EventQueue;
 
 /**
  * Event called when a customer is done paying
- * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ * @author Simon EngstrÃ¶m, Hannes Furhoff, Emil Wiklund, Johannes SundstrÃ¶m
  */
 public class GoodsPaidEvent extends MarketEvent{
 	
@@ -46,8 +46,7 @@ public class GoodsPaidEvent extends MarketEvent{
 		
 		if(mstate.customer.size() == 0 && !mstate.isOpen()  ) {
 			mstate.lastcustomerPaid = queueTime;
-			
-			//eventQueue.addEvent(new MarketStopEvent(this.queueTime)); Alternativt 
+		
 		}
 		mstate.incSales();
 		mstate.recivedChange();
