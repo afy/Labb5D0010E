@@ -2,7 +2,7 @@ package lab5.market;
 
 /**
 * Class that stands for individual customers
-* @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+* @author Simon EngstrÃ¶m, Hannes Furhoff, Emil Wiklund, Johannes SundstrÃ¶m
 */
 public class Customer {
 	public int id;
@@ -21,8 +21,4 @@ public class Customer {
 		this.arrivalTime = arrivalTime;
 		
 	}
-	
-//	public void setpaymentDoneTime(double t) {
-//		paymentDoneTime = t;
-//	}
 }
