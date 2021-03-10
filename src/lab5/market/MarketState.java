@@ -30,22 +30,50 @@ public class MarketState extends State{
 	double downTimeCheckout = 0;
 	double totalQueueTime = 0;	
 	
+	/**
+	 * Exp random stream
+	 */
 	public ExponentialRandomStream expR;
+	/**
+	 * Uniform random stream for P
+	 */
 	public UniformRandomStream uniP;
+	/**
+	 * Uniform random stream for K
+	 */
 	public UniformRandomStream uniK;
 	
-	public Event latestEvent; //The latest event that occured.
-	public Event lastEvent; //The event before the latest event that occured.
+	/**
+	 * The latest event that occured.
+	 */
+	public Event latestEvent;
+	/**
+	 * The event before the latest event that occured.
+	 */
+	public Event lastEvent; 
 	double lastcustomerPaid = 0;
 	
+	/**
+	 * las register queue size
+	 */
 	public int lastRegisterQueueSize;
 	
 	int lastN;
 	
-	public FIFO registerQueue = new FIFO(); //Register queue of type FIFO queue.
-	public ArrayList<Customer> customer = new ArrayList<Customer>(); //Stores every customer inside the store.
+	/**
+	 * Register queue of type FIFO queue.
+	 */
+	public FIFO registerQueue = new FIFO(); 
 	
-	public CustomerFactory cf = new CustomerFactory(); //Factory that creates customers.
+	/**
+	 * Stores every customer inside the store.
+	 */
+	public ArrayList<Customer> customer = new ArrayList<Customer>(); 
+	
+	/**
+	 * Factory that creates customers.
+	 */
+	public CustomerFactory cf = new CustomerFactory(); 
 	
 	/**
 	 * Constructor.

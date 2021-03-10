@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
 * First In First Out queue
-@author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+* @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public class FIFO 
 {

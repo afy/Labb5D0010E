@@ -22,6 +22,8 @@ public class Customer {
 	
 	/**
 	* A constructor that creates a Customer objects with an id and arrivalTime
+	* @param id Customer id
+	* @param arrivalTime arrival time 
 	*/
 	public Customer(int id, double arrivalTime) {
 		this.id = id; 

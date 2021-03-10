@@ -10,7 +10,7 @@ public class ExponentialRandomStream {
 	private Random rand;
 	private double lambda;
 	  
-	/*
+	/**
 	 * Constructor
 	 * @param lambda Lambda
 	 * @param seed Seed

@@ -31,8 +31,8 @@ public class MarketView extends View{
 	
 	/**
 	 * Default update method from Observer pattern
-	 * @param o 
-	 * @param arg
+	 * @param o observable
+	 * @param arg objects
 	 */
 	public void update(Observable o, Object arg) {
 		printCourseValue();
