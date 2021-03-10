@@ -7,6 +7,12 @@ import lab5.market.MarketState;
 import lab5.market.MarketStopEvent;
 import lab5.market.MarketView;
 
+/**
+ * Runs the Market simulation.
+ *
+ *@author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
+ *
+ */
 public class RunSim{
 	public static void main(String[] args) {
 //			MarketState marketState = new MarketState();
