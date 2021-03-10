@@ -2,14 +2,9 @@ package lab5.market;
 import lab5.State;
 import lab5.event.EventQueue;
 
-/**
- * 
- * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
- *
- */
-
-/**
+/**¨
  * Specific event that is called when a customer "arrives"
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
  */
 public class CustomerArrivalEvent extends MarketEvent{
 	

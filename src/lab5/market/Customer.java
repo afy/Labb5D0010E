@@ -1,13 +1,8 @@
 package lab5.market;
 
 /**
- * 
- * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
- *
- */
-
-/**
- * Class that stands for individual customers
+* Class that stands for individual customers
+* @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public class Customer {
 	public int id;

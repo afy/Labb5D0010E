@@ -1,13 +1,8 @@
 package lab5.market;
 
 /**
- * 
- * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
- *
- */
-
-/**
  * A class used to create a new Customer
+ * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
  */
 public class CustomerFactory {
 	private int nextCustomerId = 0;

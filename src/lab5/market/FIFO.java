@@ -1,14 +1,10 @@
 package lab5.market;
 import java.util.ArrayList;
 
-/**
- * 
- * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
- *
-**/
 
 /**
- * First In First Out queue
+* First In First Out queue
+@author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public class FIFO 
 {
