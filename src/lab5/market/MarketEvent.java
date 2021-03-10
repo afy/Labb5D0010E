@@ -24,8 +24,8 @@ public abstract class MarketEvent extends Event{
 
 	/**
 	 * 
-	 * @param state
-	 * @param queue
+	 * @param state Market state
+	 * @param queue EventQueue
 	 */
 	abstract public void runEvent(State state, EventQueue queue);	
 }

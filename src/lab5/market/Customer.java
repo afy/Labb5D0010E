@@ -5,12 +5,19 @@ package lab5.market;
 * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
 */
 public class Customer {
+	/**
+	 * Costumer id
+	 */
 	public int id;
-//	public double pickingTime = 0;
+	
+	/**
+	 * Arrival time
+	 */
 	public double arrivalTime = 0;
-//	public double queueArrivalTime = 0;
-//	public double scanTime = 0;
-//	public double paymentDoneTime = 0;
+	
+	/**
+	 * Started queue 
+	 */
 	public double startedQueue = 0;
 	
 	/**

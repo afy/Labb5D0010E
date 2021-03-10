@@ -25,6 +25,11 @@ public class Simulator {
 	    this.eventQueue = eventQueue;
 	    this.state = state;
 	}
+	
+	/**
+	 * Get state
+	 * @return state
+	 */
 	public State getState() {
 		return state;
 	}

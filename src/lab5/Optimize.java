@@ -14,6 +14,11 @@ import lab5.market.UniformRandomStream;
  * @author Simon Engström, Hannes Furhoff, Emil Wiklund, Johannes Sundström
  */
 public class Optimize {
+	
+	/**
+	 * Main
+	 * @param args arguments
+	 */
 	public static void main(String[] args) {
 		for(int i = 0; i < 1000; i++) {
 			System.out.println(testSeed(i));

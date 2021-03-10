@@ -8,6 +8,10 @@ import lab5.market.ExponentialRandomStream;
  */
 public abstract class StartEvent extends Event{
 	
+	/**
+	 * Constructor
+	 * @param time Current simulation time
+	 */
 	public StartEvent(double time) {
 		super(time);
 	}
@@ -16,7 +20,7 @@ public abstract class StartEvent extends Event{
 	 * Method called by simulation; action taken by simulation
 	 * Indicate a simulation start, then call abstract method postRunEvent()
 	 * @param state Simulation state
-	 * @param @param eventQueue FIFO queue of events to be executed
+	 * @param eventQueue FIFO queue of events to be executed
 	 */
 	public void runEvent(State state, EventQueue eventQueue) {
 		state.startSim();

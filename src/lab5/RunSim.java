@@ -14,6 +14,10 @@ import lab5.market.MarketView;
  *
  */
 public class RunSim{
+	/**
+	 * Main
+	 * @param args Arguments
+	 */
 	public static void main(String[] args) {
 //			MarketState marketState = new MarketState();
 //			
